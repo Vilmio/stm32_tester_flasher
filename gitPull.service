@@ -1,0 +1,13 @@
+# $HOME/.config/systemd/user/gitpull.service
+[Unit]
+Description=Pulling recent git repo
+After=network.target
+
+[Service]
+Type=simple
+User=test
+WorkingDirectory=/home/test/
+ExecStart=git clone https://github.com/Vilmio/esp_tester_flasher.git
+
+[Install]
+WantedBy=multi-user.target

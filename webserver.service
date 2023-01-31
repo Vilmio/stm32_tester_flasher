@@ -1,0 +1,13 @@
+[Unit]
+Description=ESP32 - tester
+After=network.target
+
+[Service]
+Type=simple
+User=test
+WorkingDirectory=/home/test/
+ExecStart=/home/test/esp_tester_flasher/start.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

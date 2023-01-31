@@ -1,0 +1,37 @@
+<div class="container-sm text-center">
+    <div class="container-sm mt-5 text-center">
+      <div class="container mt-10">
+        <p class="text-left text-light">Current tester firmware version: <span id="testerVersion"> -.-.-</p>
+        <button type="button" id="test" class="btn btn-primary btn-lg w-50">Start</button>
+        <button type="button" id="refresh" class="btn btn-success btn-lg w-20">Refresh</button>
+      </div>
+      <div class="container-sm h-25 d-inline-block">
+
+      </div>
+      <div class="container-sm mt-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="flashCheckbox" checked>
+            <label class="form-check-label text-muted" for="flashCheckbox">Erase & flash</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="testCheckbox" checked>
+            <label class="form-check-label text-muted" for="testCheckbox">Test</label>
+          </div>
+        </div>
+
+        <div class="accordion mt-5">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  Output
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body" id="output">
+                  <strong>Tap to start button to start flashing and testing LoRa converter</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>  
+</div>
