@@ -3,13 +3,13 @@ import time
 import os
 import modbus
 from pathlib import Path
-from testSTLink import STLink
+from JlinkCLI import JlinkFlasher
 try:
     import RPi.GPIO as GPIO
 except:
     pass
 import re
-import pwd
+
 
 class Stm32:
 
@@ -30,11 +30,8 @@ class Stm32:
             pass
 
         self._stLinkReady = False
-        usr=pwd.getpwuid(os.getuid())[0]
-        pth='/home/'+usr+'/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/'
-        self._pathToProgrammer = pth
-        self.stLink = STLink(self._pathToProgrammer)
-        self.checkLinks()
+        self.jLink = JlinkFlasher()
+        self.jLink.testJlinkConnection()
 
     def get_fimrwareVersion(self):
         arr = os.listdir()
@@ -47,10 +44,16 @@ class Stm32:
             
     def start_flash(self):
         print("Start flashing ...")
-        
+        if self.jLink.testJlinkConnection() == False:
+            self.status = "jLink not connected!!"
+            
         try:
             self.status = "Upload new firmware, please wait!"
-            self.status =  "ok"
+            if self.jLink.flashMCU() == True:
+                self.status =  "ok"
+            else:
+                self.status =  "error during flashing"    
+                            
         except Exception as e:
             self.status = "{}".format(e)
         
@@ -71,20 +74,4 @@ class Stm32:
             return "{}".format(e)
 
 
-        
-
-    def checkLinks(self):
-
-        out = self.stLink.scanForSTLinks()
-        if out == 0:
-            print("Nepřipojen")
-            self._stLinkReady = False
-        
-        elif out == 1:
-            print("Odpojte a znovu připojte ST-link do USB")
-            self._stLinkReady = False
-            time.sleep(2)
-
-        else:
-            print("Připojen")
-            self._stLinkReady = True
+    

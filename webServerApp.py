@@ -3,10 +3,11 @@ import json
 from typing import IO
 from flask import Flask, jsonify, render_template, request
 from flask.wrappers import Request
-import stm32CLI
 import os
 from sys import getsizeof
 from gitCLI import Git
+import stm32CLI
+import JlinkCLI
 
 STATIC_PATH = 'main'
 STATIC_URL_PATH = '/main'
@@ -15,6 +16,10 @@ TEMPLATE_PATH = 'main/template/'
 app = Flask(__name__,template_folder=TEMPLATE_PATH,static_url_path=STATIC_URL_PATH,static_folder=STATIC_PATH)
 
 stm32API = stm32CLI.Stm32()
+'''zde mozno otestovat pripojeni a flashnuti - nezapomenout napajet externe pokud JLink neumi!!'''
+#stm32API = JlinkCLI.JlinkFlasher() 
+#stm32API.testJlinkConnection()
+#stm32API.flashMCU() 
 
 @app.route('/')
 def main():
