@@ -68,18 +68,19 @@ class JlinkFlasher():
 
     def testJlinkConnection(self):
         ret = False
-       # if self._jlink.connected() == False:
-        try:
-            del self._jlink
-            self._jlink = pylink.JLink()
-            ret = self.connectJlink()
-            self.notifyJlinkStat(True)
-            
-        except:
-            self.notifyJlinkStat(False)
+        if self._jlink.connected() == False:
+            try:
+                del self._jlink
+                self._jlink = pylink.JLink()
+                ret = self.connectJlink()
+                self.notifyJlinkStat(True)
+                
+            except:
+                self.notifyJlinkStat(False)
 
-#        else:
-#           self.notifyJlinkStat(True) 
+        else:
+            ret = True
+            self.notifyJlinkStat(True) 
            
         return ret  
 
