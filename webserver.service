@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=test
-WorkingDirectory=/home/test/
+WorkingDirectory=/home/test/stm32_tester_flasher/
 ExecStart=/home/test/stm32_tester_flasher/start.sh
 Restart=always
 
