@@ -46,6 +46,7 @@ class Stm32:
         print("Start flashing ...")
         if self.jLink.testJlinkConnection() == False:
             self.status = "jLink not connected!!"
+            return
             
         try:
             self.status = "Upload new firmware, please wait!"
