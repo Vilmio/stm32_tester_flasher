@@ -1,6 +1,7 @@
 
 import pylink   #pip install pylink-square
 from dataclasses import dataclass
+import os
 
 TARGET_DEV_NAME = 'STM32G030K6'
 SWD_SPEED = 2000
@@ -12,8 +13,17 @@ class JlinkFlasher():
         #super(JlinkFlasher, self).__init__(parent)
 
         self._jlink = pylink.JLink()
+        self.binary_file = self.getBinaryFile()
         #self.connectJlink()
 
+    def getBinaryFile(self):
+        arr = os.listdir()
+        for i in arr:
+            if i[-3:] == "bin":
+                print("binary file: ",i)
+                return i
+        return ""
+    
     def eraseFlash(self):
         if self._jlink.erase() !=0:
            print("Flash mcu smazana")
@@ -25,18 +35,19 @@ class JlinkFlasher():
             except:
                 self.connectMCUError()
             #self.jlink.reset(ms = 10, halt=True)
-            foo(self)
+            return foo(self)
         return wrapper
 
     @_connectRequired
     def flashMCU(self):
 
-        try:                
+        try:  
+           print("Erase MCU")              
+           self._jlink.erase()
            self._jlink.reset(ms = 10, halt=True)
-           # self.eraseFlash()
-           self._jlink.flash_file('Lora_485.bin',0)
+           print("Upload Lora_485.bin file to MCU")
+           self._jlink.flash_file(self.binary_file ,0)
            self._jlink.reset(ms = 10, halt=False)
-            
            return True
         except:
             self.connectMCUError()
@@ -59,6 +70,7 @@ class JlinkFlasher():
             #self._jlink.open(260102277)
             emuls = self._jlink.connected_emulators()
             self._jlink.open(emuls[0].SerialNumber)
+            self._jlink.power_on()
             self._jlink.set_tif(pylink.enums.JLinkInterfaces.SWD)
             print("JLink connected")
             return True

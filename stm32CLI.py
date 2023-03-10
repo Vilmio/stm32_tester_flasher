@@ -39,7 +39,7 @@ class Stm32:
             if i[-3:] == "bin":
                 version = i[:-4]
                 version = version.split("_")
-                return version[1]
+                return i
         return "0.0"
             
     def start_flash(self):
@@ -50,7 +50,9 @@ class Stm32:
             
         try:
             self.status = "Upload new firmware, please wait!"
-            if self.jLink.flashMCU() == True:
+            flashStatus = self.jLink.flashMCU()
+            print("Flash status", flashStatus)
+            if flashStatus == True:
                 self.status =  "ok"
             else:
                 self.status =  "error during flashing"    
