@@ -1,12 +1,12 @@
 [Unit]
-Description=ESP32 - tester
+Description=LoRA_485 - tester
 After=network.target
 
 [Service]
 Type=simple
 User=test
 WorkingDirectory=/home/test/
-ExecStart=/home/test/esp_tester_flasher/start.sh
+ExecStart=/home/test/stm32_tester_flasher/start.sh
 Restart=always
 
 [Install]

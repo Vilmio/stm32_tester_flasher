@@ -37,8 +37,6 @@ class Stm32:
         arr = os.listdir()
         for i in arr:
             if i[-3:] == "bin":
-                version = i[:-4]
-                version = version.split("_")
                 return i
         return "0.0"
             
