@@ -50,7 +50,7 @@ class JlinkFlasher():
            self._jlink.reset(ms = 10, halt=False)
            return True
         except:
-            self.connectMCUError()
+            #self.connectMCUError()
             return False
     
 

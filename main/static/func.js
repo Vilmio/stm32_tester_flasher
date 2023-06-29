@@ -19,15 +19,8 @@ function test(isFlash){
             clearTimeout(timer)
             if (e.Status == "ok"){
                 $("#output").append("<br>")
-                $("#output").append("-> The test process was succesfully:"+
-                    "<br>Binary version: <strong>"+(e.Report.Binaryversion)+"</strong>"+
-                    "<br>Firmware version: "+(e.Report.Firmwareversion)+
-                    "<br>EVSE: "+(e.Report.EVSE)+
-                    "<br>WATTMETER: "+(e.Report.WATTMETER)+
-                    "<br>RELAY: "+(e.Report.RELAY)+
-                    "<br>DE: "+(e.Report.DE))
+                $("#output").append("-> The test process was <strong>"+(e.Report)+"</strong>")
                 $("#test").text("Start")
-
             }else{
                 $("#output").append("<br>")
                 $("#output").append("-> The test process was failed: <br><code>"+e.Report+"</code>")
@@ -38,7 +31,7 @@ function test(isFlash){
             clearTimeout(timer)
             $("#test").text("Start")
             $("#output").append("<br>")
-            $("#output").append("-> <span id='success'>"+error+"</span>") 
+            $("#output").append("-> <span id='success'>"+error+"</span>")
         },
     });
 }
@@ -46,7 +39,7 @@ function test(isFlash){
 function erase_flash(isTest){
     $("#test").text("Flashing .. "),
     $("#output").text(""),
-    $("#output").append("-> Erasing and flashing firmware with version: <span id='success'>"+version+"</span> "), 
+    $("#output").append("-> Erasing and flashing firmware with version: <span id='success'>"+version+"</span> "),
     $("#test").append('<span class="spinner-border spinner-border-sm"></span>'),
     (timer = setInterval(function () {$("#output").append(".")}, 1e3));
 
@@ -77,7 +70,7 @@ function erase_flash(isTest){
             $("#output").append("<br>")
             $("#output").append("-> <span id='success'>"+error+"</span>")
         },
-        
+
     });
 }
 
