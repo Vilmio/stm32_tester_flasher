@@ -44,7 +44,7 @@ class JlinkFlasher():
         try:  
            # print("Erase MCU")
            # self._jlink.erase()
-           # self._jlink.reset(ms = 10, halt=True)
+           self._jlink.reset(ms = 10, halt=True)
            print("Upload Lora_485.bin file to MCU")
            self._jlink.flash_file(self.binary_file ,0)
            self._jlink.reset(ms = 10, halt=False)
