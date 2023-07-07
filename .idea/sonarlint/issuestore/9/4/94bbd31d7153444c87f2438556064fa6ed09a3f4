@@ -1,0 +1,26 @@
+
+fpython:S1192'"IDefine a constant instead of duplicating this literal 'port=SWD' 8 times.(Õ×È»úÿÿÿÿ
+bpython:S1192("JDefine a constant instead of duplicating this literal 'freq=4000' 5 times.(êŸ­¿
+wpython:S1192"ZDefine a constant instead of duplicating this literal '/STM32_Programmer_CLI.exe' 9 times.(£Ğÿÿÿÿÿÿ
+ppython:S116"TRename this field "cubeProgPath" to match the regular expression ^[_a-z][_a-z0-9]*$.(ò¼é“ıÿÿÿÿ
+xpython:S117"\Rename this parameter "pathtoProgrammer" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãÁ„Êøÿÿÿÿ
+ipython:S100
+"RRename method "scanForSTLinks" to match the regular expression ^[a-z_][a-z0-9_]*$.(µ¾ã
+Tpython:S5754"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+lpython:S100!"PRename method "connectToMCU" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦œë¨ûÿÿÿÿ
+Tpython:S5754-"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+hpython:S1005"LRename method "eraseMCU" to match the regular expression ^[a-z_][a-z0-9_]*$.(¼‰óşÿÿÿÿ
+Tpython:S5754B"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+lpython:S117K"URename this parameter "startAddr" to match the regular expression ^[_a-z][a-z0-9_]*$.(ñÊ‘Û
+cpython:S100K"LRename method "flashMCU" to match the regular expression ^[a-z_][a-z0-9_]*$.(ñÊ‘Û
+Tpython:S5754["<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+hpython:S100d"LRename method "resetMCU" to match the regular expression ^[a-z_][a-z0-9_]*$.(œöûÿÿÿÿ
+Tpython:S5754q"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+hpython:S100z"QRename method "writeU32ToMem" to match the regular expression ^[a-z_][a-z0-9_]*$.(¦È‰ƒ
+Upython:S5754ˆ"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+gpython:S100‘"PRename method "writeU8ToMem" to match the regular expression ^[a-z_][a-z0-9_]*$.(æµÿF
+Upython:S5754 "<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+kpython:S100©"NRename method "readU32Mem" to match the regular expression ^[a-z_][a-z0-9_]*$.(ô¢”œûÿÿÿÿ
+Upython:S5754¶"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+epython:S100Á"MRename method "readU8Mem" to match the regular expression ^[a-z_][a-z0-9_]*$.(’Ë¬ç
+Upython:S5754Í"<Specify an exception class to catch or reraise the exception(ˆÊÉ·

@@ -1,0 +1,4 @@
+
+mpython:S1542 "PRename function "updateData" to match the regular expression ^[a-z_][a-z0-9_]*$.(åéäøûÿÿÿÿ
+Npython:S1481:"/Remove the unused local variable "test_report".(Š¡Â8×âì¶1
+mpython:S1542E"PRename function "getVersion" to match the regular expression ^[a-z_][a-z0-9_]*$.(óøÿÿÿÿ
