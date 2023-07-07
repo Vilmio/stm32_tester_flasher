@@ -1,13 +1,0 @@
-
-upython:S116"RRename this field "serialPort" to match the regular expression ^[_a-z][_a-z0-9]*$.(¨…²‡øÿÿÿÿ8€«é¶1
-wpython:S116#"TRename this field "_stLinkReady" to match the regular expression ^[_a-z][_a-z0-9]*$.(‚¡³õûÿÿÿÿ8€«é¶1
-zpython:S116"WRename this field "firmwareVersion" to match the regular expression ^[_a-z][_a-z0-9]*$.(Ã¡Ü¿ùÿÿÿÿ8€«é¶1
-wpython:S116"TRename this field "modbusClient" to match the regular expression ^[_a-z][_a-z0-9]*$.( ÑêÒıÿÿÿÿ8€«é¶1
-kpython:S116$"MRename this field "jLink" to match the regular expression ^[_a-z][_a-z0-9]*$.(¼ÕÕø8€«é¶1
-Fpython:S1481"'Remove the unused local variable "OFF".(ÜÀŸ¾8€«é¶1
-[python:S5754 "<Specify an exception class to catch or reraise the exception(ˆÊÉ·8€«é¶1
-upython:S100'"WRename method "get_fimrwareVersion" to match the regular expression ^[a-z_][a-z0-9_]*$.(ØôŸ’8€«é¶1
-python:S1176"\Rename this local variable "flashStatus" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÓÃ“˜üÿÿÿÿ8€«é¶1
-{python:S117M"XRename this local variable "evState" to match the regular expression ^[_a-z][a-z0-9_]*$.(ĞŞƒ†şÿÿÿÿ8€«é¶1
-wpython:S117G"YRename this local variable "readRegs" to match the regular expression ^[_a-z][a-z0-9_]*$.(‰¯Îİ8€«é¶1
-zpython:S117K"\Rename this local variable "receiveData" to match the regular expression ^[_a-z][a-z0-9_]*$.(å¼å¦8€«é¶1
