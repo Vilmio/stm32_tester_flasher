@@ -52,7 +52,6 @@ class Stm32:
         try:
             self.status = "Upload new firmware, please wait!"
             flashStatus = self.jLink.flashMCU()
-            self.jLink.mcuHalt()
             print("Flash status", flashStatus)
             if flashStatus == True:
                 self.status = "ok"
@@ -60,7 +59,6 @@ class Stm32:
                 self.status = "error during flashing"
 
         except Exception as e:
-            self.jLink.mcuHalt()
             self.status = "{}".format(e)
 
     def start_testing(self):
