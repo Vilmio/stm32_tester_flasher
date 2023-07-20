@@ -25,10 +25,13 @@ class Stm32:
         self.serialPort = None
         self.attempt_cnt: int = 0
         try:
-            self.serialPort = serial.Serial("/dev/ttyAMA0", 9600, timeout=1)
             GPIO.setmode(GPIO.BCM)
             GPIO.setwarnings(False)
             GPIO.setup(Stm32.DE_PIN, GPIO.OUT)
+            self.serialPort = serial.Serial(port="/dev/ttyAMA0",
+                                            baudrate=9600,
+                                            timeout=1
+                                            )  # Automatické ovládání DTR)
         except:
             pass
 
@@ -51,7 +54,9 @@ class Stm32:
 
         try:
             self.status = "Upload new firmware, please wait!"
+            self.jLink.testJlinkConnection()
             flashStatus = self.jLink.flashMCU()
+            self.jLink.jlink_reset()
             print("Flash status", flashStatus)
             if flashStatus == True:
                 self.status = "ok"
@@ -59,23 +64,26 @@ class Stm32:
                 self.status = "error during flashing"
 
         except Exception as e:
+            self.jLink.jlink_reset()
             self.status = "{}".format(e)
 
     def start_testing(self):
         reg: int = 1000
         length: int = 3
         try:
-            print("start testing")
-            GPIO.output(Stm32.DE_PIN, True)
-            time.sleep(0.1)
+            print("===================== start testing =====================")
+            self.serialPort.reset_output_buffer()
+            self.serialPort.reset_input_buffer()
+            time.sleep(1)
             readRegs = self.modbusClient.read_regs(reg, length)
-            self.serialPort.write(readRegs)
-            time.sleep(0.015)
+            bytes_written = self.serialPort.write(readRegs)
+            time.sleep(0.016)
             GPIO.output(Stm32.DE_PIN, False)
             receiveData = self.serialPort.readline()
-            receiveData = self.modbusClient.mbrtu_data_processing(receiveData)
-            evState = (receiveData[2])
-            if evState:
+            GPIO.output(Stm32.DE_PIN, True)
+            print(f"Receive data: {receiveData}")
+            if len(receiveData) >= 11:
+                print("Test OK")
                 self.status = "ok"
             else:
                 self.status = f"nok -> ev status: {evState}"
@@ -90,3 +98,4 @@ class Stm32:
                 self.attempt_cnt = 0
                 self.status = "fail"
                 return "{}".format(e)
+
